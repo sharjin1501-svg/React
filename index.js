@@ -1,4 +1,23 @@
 function Chatinput({messages,setMessages}){
+  
+function setchatmessages(){
+    return (
+    setMessages([
+        ...messages,
+        {message:"hello",sender:"user",key:5}
+    ]));
+};
+
+return(
+        <div>
+            <input placeholder="Type a message..." />
+            <button onClick={setchatmessages}>Send</button>
+           
+        </div>
+);
+
+};
+function Chatmessages({messages}){
     return(
     messages.map((msg)=>{
         return(
@@ -7,18 +26,11 @@ function Chatinput({messages,setMessages}){
             sender={msg.sender} 
             key={msg.key}
             />
-        )
+        );
     })
 );
 
-function setchatmessages(){
-    return (
-    setMessages([
-        ...messages,
-        {message:"hello",sender:"user",key:5}
-    ]));
-};
-};
+}
 function Chatmessage({message,sender,id}){
     return(
         <div>{
@@ -42,12 +54,12 @@ function App(){
 
     return(
         <div>
-            <input placeholder="Type a message..." />
-            <button onClick={setchatmessages}>Send</button>
+           
             <Chatinput messages={chatmessages} 
                 setMessages={setchatmessages}/>
+            <Chatmessages messages={chatmessages}/>
         </div>
-    )
+    );
 }
 
 
