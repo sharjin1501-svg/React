@@ -11,9 +11,14 @@ function Chatinput({messages,setMessages}){
     })
 );
 
-
-}
-
+function setchatmessages(){
+    return (
+    setMessages([
+        ...messages,
+        {message:"hello",sender:"user",key:5}
+    ]));
+};
+};
 function Chatmessage({message,sender,id}){
     return(
         <div>{
@@ -38,7 +43,7 @@ function App(){
     return(
         <div>
             <input placeholder="Type a message..." />
-            <button>Send</button>
+            <button onClick={setchatmessages}>Send</button>
             <Chatinput messages={chatmessages} 
                 setMessages={setchatmessages}/>
         </div>
