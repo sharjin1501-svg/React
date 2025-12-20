@@ -1,16 +1,31 @@
 function Chatinput({messages,setMessages}){
+    const[inputvalue,setInputvalue]=React.useState("");
+
+function setinput(event){
+    setInputvalue(event.target.value);
+
+}
   
 function setchatmessages(){
-    return (
-    setMessages([
-        ...messages,
-        {message:"hello",sender:"user",key:5}
-    ]));
+    
+    const newMessages=[...messages,
+        {message:inputvalue,sender:"user",key:5}
+    ];
+
+    setMessages(newMessages);
+    const response = Chatbot.getResponse(inputvalue); 
+     setMessages([...newMessages,
+        {message:response,sender:"bot",key:6}
+    ]);
+    setInputvalue("");  
+
+
 };
 
 return(
         <div>
-            <input placeholder="Type a message..." />
+            <input placeholder="Type a message..." 
+            onChange={setinput} value={inputvalue}/>
             <button onClick={setchatmessages}>Send</button>
            
         </div>
@@ -34,10 +49,10 @@ function Chatmessages({messages}){
 function Chatmessage({message,sender,id}){
     return(
         <div>{
-            sender==="user" && ( <img src="ab.png" width="30" />  )
+            sender==="bot" && ( <img src="ab.png" width="30" />  )
             }
             {message}
-            {sender==="bot" && ( <img src="bo.png" width="30" />  )  
+            {sender==="user" && ( <img src="bo.png" width="30" />  )  
             }
         
         </div> 
