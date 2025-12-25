@@ -18,10 +18,9 @@ function App(){
 
     return(
         <div>
-           
+            <Chatmessages messages={chatmessages}/>
             <Chatinput messages={chatmessages} 
                 setMessages={setchatmessages}/>
-            <Chatmessages messages={chatmessages}/>
         </div>
     );
 }

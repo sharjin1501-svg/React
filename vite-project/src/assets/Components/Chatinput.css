@@ -1,0 +1,10 @@
+.chat-input-box{
+    display: flex;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chat-input{
+    display: flex;
+    flex-grow: 1;
+}
