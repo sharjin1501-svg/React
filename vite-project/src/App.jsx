@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Chatmessages } from './assets/Components/Chatmessages';
-import { Chatinput } from './assets/Components/Chatinput';
+import { Chatmessages } from './Components/Chatmessages';
+import { Chatinput } from './Components/Chatinput';
 import './App.css'
 
 
@@ -17,7 +17,7 @@ function App(){
     ]);
 
     return(
-        <div>
+        <div className="app-container">
             <Chatmessages messages={chatmessages}/>
             <Chatinput messages={chatmessages} 
                 setMessages={setchatmessages}/>

@@ -1,0 +1,7 @@
+.chat-input-box{
+   display: flex;
+}
+.chat-input{
+    display: flex;
+    flex-grow: 1;
+}
