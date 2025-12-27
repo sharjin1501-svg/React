@@ -1,7 +1,0 @@
-.message-container{
-    display: flex;
-    overflow: scroll;
-    scrollbar-width: none;
-    flex-grow: 1;
-    flex-direction: column;
-}
